@@ -3,8 +3,10 @@ let posts=[ ];
 const likedPostsId = [];
 const reportedPostsId = [];
 
+
 const getLikedPosts = () => {
     return posts.filter((post) => likedPostsId.includes(post.id));
+    
 };
 
 const getReportedPosts = () => {
@@ -148,20 +150,23 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  document.getElementById("liked").textContent='';
     const likedPosts = getLikedPosts();
-   
-    // likedPosts.innerHTML="";
+    likedPosts.innerHTML="";
     likedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "liked" ).appendChild(div);
-        // likedPosts.appendChild(div);
+        
     });
+     
 };
 
 const displayReportedPosts = () => {
+  document.getElementById("reported").textContent='';
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
-      console.log(post);
+    // reportedPosts.innerHTML="";
+    reportedPosts.forEach((post) => {
+      // console.log(post);
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
